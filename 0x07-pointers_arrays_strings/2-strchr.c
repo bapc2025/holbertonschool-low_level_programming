@@ -10,22 +10,22 @@
  * c in the string s of NULL if the character
  * is not found.
  */
-
 char *_strchr(char *s, char c)
 {
+	int i;
 
-	int a
-
-	while (1)
+	i = 0;
+	while (*(s + i))
 	{
-		a = *s++;
-		if (a == c)
+		if (*(s + i) == c)
 		{
-			return (s - 1);
+			while (*(s + i))
+			{
+				return (s + i);
+				 i = i + 1;
+			}
 		}
-		if (a == 0)
-		{
-			return (NULL);
-		}
+		i = i + 1;
 	}
+	return (NULL);
 }
