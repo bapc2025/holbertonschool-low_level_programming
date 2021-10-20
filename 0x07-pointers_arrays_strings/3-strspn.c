@@ -1,6 +1,7 @@
 #include "main.h"
+
 /**
- * *_strspn - gets the length of a prefix substring
+ * _strspn - gets the length of a prefix substring
  * @s: string to evaluate
  * @accept: string containing the list of characters to match in s
  *
@@ -9,24 +10,22 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	int count = 0;
-	char *p = accept;
+	int i, j, exit;
 
-	while (*s != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (accept = p; *accept != '\0'; accept++)
+		exit = 0;
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (*s == *accept)
+			if (accept[j] == s[i])
 			{
-				count++;
-				break;
+				exit = 1;
 			}
 		}
-		if (*accept == '\0')
+		if (exit == 0)
 		{
-			break;
+			return (i);
 		}
-		s++;
 	}
-	return (count);
+	return (i);
 }
