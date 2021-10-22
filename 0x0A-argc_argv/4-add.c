@@ -1,33 +1,64 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * main - prints argc added
- * @argc: argument count
- * @argv: argument array
- * Return: returns 1 if argc is 1,
- * if other than number are added returns 1
- * returns 0
+ * digit - checks the string in argv is a number
+ *
+ * Description: checks the string in argv is a number
+ *
+ * @s: pointer
+ * Return: 1 if true -1 if false
  */
-int main(int argc, char *argv[])
+int digit(char *s)
 {
-	int i, sum = 0;
+	int i;
+	int x = 0;
 
-	if (argc < 1)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		printf("0\n");
-		return (0);
+		if (s[i] >= '0' && s[i] <= '9')
+			x = x * 10 + (s[i] - '0');
+		else
+			return (-1);
 	}
+	return (0);
+}
 
-	for (i = 1; i < argc; i++)
+/**
+ * main -  adds positive numbers
+ *
+ * Description:  adds positive numbers
+ *
+ * @argc: integer
+ * @argv: pointer
+ * Return: 0 or 1 if wrong
+ */
+int main(int argc, char **argv)
+{
+	int i;
+	int y = 0;
+
+	if (argc >= 3)
 	{
-		if (!atoi(argv[i]))
+		for (i = 1; i < argc; i++)
 		{
-			printf("%s\n", "Error");
-			return (1);
+			if (digit(argv[i]))
+			{
+				printf("%s\n", "Error");
+				return (1);
+			}
+			else
+				y += atoi(argv[i]);
 		}
-		sum += atoi(argv[i]);
+		printf("%d\n", y);
 	}
-	printf("%d\n", sum);
+	else
+	{
+		if (argc == 1)
+		{
+			printf("%d\n", 0);
+		}
+		if (argc == 2)
+			printf("%s\n", "Error");
+	}
 	return (0);
 }
