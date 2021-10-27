@@ -1,12 +1,13 @@
 #include "main.h"
-#include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
- *  _strdup - copies the string.
- *  @str: string to duplicate
- *  return: pointer to the copied string (success), NULL (error)
+ *_strdup - return pointer to space in memory
+ *@str: string to copy
+ * Return: pointer mentioned above
  */
+
 char *_strdup(char *str)
 {
 	int x;
