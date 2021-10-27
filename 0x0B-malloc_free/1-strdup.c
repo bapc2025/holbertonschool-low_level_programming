@@ -7,37 +7,25 @@
  *@str: string to copy
  * Return: pointer mentioned above
  */
-
 char *_strdup(char *str)
 {
-	int x;
-	int y;
-	char *a;
-
-	y = 0;
-
-	if (str == NULL)
-	{
-		return (NULL);
-	}
-
-	while (str[y] != '\0')
-	{
-		y++;
-	}
-
-	a = malloc(y * sizeof(char));
-
-	if (a == NULL)
-	{
-		return (NULL);
-	}
-
-	for (x = 0 ; x < y ; x++)
-	{
-		a[x] = str[x];
-	}
-
-	return (a);
-
+char *nwstr;
+int i;
+int j;
+if (str == NULL)
+{
+return (NULL);
+}
+for (i = 0; str[i] != '\0'; i++)
+; /** strlen of str */
+nwstr = (char *)malloc(sizeof(char) * (i + 1));
+if (nwstr == NULL)
+{
+return (NULL);
+}
+for (j = 0; j <= i; j++)
+{
+nwstr[j] = str[j];
+}
+return (nwstr);
 }
