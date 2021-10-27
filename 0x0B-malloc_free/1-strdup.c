@@ -5,26 +5,23 @@
  *  @str: string to duplicate
  *  return: pointer to the copied string (success), NULL (error)
  */
-
 char *_strdup(char *str)
 {
-	char *p;
-	int i;
+	char *s;
+	int len, i;
 
-	if (str == 0)
+	if (str == NULL)
 		return (NULL);
 
-	for (i = 0; *(str + i) != 0; i++)
-	{}
+	len = strlen(str);
 
-	p = malloc(sizeof(char) * i + 1);
+	s = malloc(sizeof(char) + 1 * len);
 
-	if (p == NULL)
-		return (0);
+	if (s == NULL)
+		return (NULL);
 
-	for (i = 0; *(str + i) != 0; i++)
-		*(p + i) = *(str + i);
-
-	*(p + i) = 0;
-	return (p);
+	for (i = 0; i < len; i++)
+		s[i] = str[i];
+	s[i] = '\0';
+	return (s);
 }
