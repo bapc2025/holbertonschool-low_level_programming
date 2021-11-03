@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include "function_pointers.h"
+#include <stdio.h>
 /**
+ *
  * print_name - prints name given through given func
  * @name: name to print
  * @f: function to print with
